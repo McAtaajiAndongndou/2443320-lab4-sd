@@ -2,7 +2,13 @@ document.getElementById("search-btn").addEventListener("click", function() {
     let countryName = document.getElementById("country-input").value;
     
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fields=name,capital,population,region,flags,borders`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok){
+                throw new Error("Country not found");
+            }
+            
+            return response.json();
+        })
         .then(data => {
             let country = data[0];
 
