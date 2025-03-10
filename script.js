@@ -5,6 +5,11 @@ document.getElementById("search-btn").addEventListener("click", function() {
         .then(response => response.json())
         .then(data => {
             let country = data[0];
+
+            if(!country || !country.name || country.capital || !country.population){
+                throw new Error("Invalid Country Data")
+            }
+            
             let countryInfo = document.getElementById("country-info");
             countryInfo.innerHTML = `
                 <p>Capital: ${country.capital ? country.capital[0] : "N/A"}</p>
