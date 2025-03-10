@@ -2,20 +2,9 @@ document.getElementById("search-btn").addEventListener("click", function() {
     let countryName = document.getElementById("country-input").value;
     
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fields=name,capital,population,region,flags,borders`)
-        .then(response => {
-            if (!response.ok){
-                throw new Error("Country not found");
-            }
-            
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             let country = data[0];
-
-            if(!country || !country.name || country.capital || !country.population){
-                throw new Error("Invalid Country Data")
-            }
-            
             let countryInfo = document.getElementById("country-info");
             countryInfo.innerHTML = `
                 <p>Capital: ${country.capital ? country.capital[0] : "N/A"}</p>
