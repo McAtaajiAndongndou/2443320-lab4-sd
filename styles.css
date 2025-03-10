@@ -1,1 +1,29 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: f0f0f0;
+}
 
+h1 {
+    color: #222;
+}
+
+input, button {
+    padding: 8px;
+    margin: 5px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#country-info, #bordering-countries {
+    margin-top: 20px;
+    padding: 10px;
+    background:white;
+    border: 1px solid #ccc;
+}
